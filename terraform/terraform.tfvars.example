@@ -1,0 +1,12 @@
+# terraform.tfvars.example
+# Copy this file to terraform.tfvars and fill in your values
+
+# Cloudflare Account ID (find it on the dashboard)
+account_id = "your-account-id-here"
+
+# Application name
+app_name = "node-demo"
+
+# NOTE: Do not include cloudflare_api_token here
+# Configure it as an environment variable or in Terraform Cloud:
+# export TF_VAR_cloudflare_api_token="your-token"
