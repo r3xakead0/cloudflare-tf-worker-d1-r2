@@ -1,6 +1,6 @@
 # Terraform Cloudflare Worker Demo
 
-This project deploys a NodeJS application on Cloudflare Workers, D1, and R2 using Terraform Cloud and GitHub Actions.
+This project deploys a NodeJS application on Cloudflare Workers, and D1 using Terraform Cloud and GitHub Actions.
 
 ## 🛠️ Installation
 
@@ -73,7 +73,6 @@ wrangler dev worker.js
    - Permissions:
         - Account > Workers Scripts: `Edit`
         - Account > D1: `Edit`
-        - Account > Workers R2 Storage: `Edit`
         - Zone > Workers Routes: `Edit`
    - Zone Resources:
         - Include > All zones from an account: `chainiz`
@@ -111,8 +110,6 @@ Actions → Destroy Worker → Run workflow
 - `/`       → Hello Worker
 - `/time`   → Server time
 - `/db`     → Query D1 database
-- `/upload` → Upload file to R2
-- `/file`   → Read file from R2
 
 ## 🧠 Workflow
 
