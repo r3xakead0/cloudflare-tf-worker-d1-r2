@@ -8,10 +8,12 @@ resource "cloudflare_d1_database" "app_db" {
 }
 
 resource "cloudflare_workers_script" "node_app" {
-  script_name    = "${var.app_name}-worker"
-  account_id     = var.account_id
+  script_name = "${var.app_name}-worker"
+  account_id  = var.account_id
   content_file   = "../app/worker.js"
   content_sha256 = filesha256("../app/worker.js")
+
+  main_module = "../app/worker.js"
 
   bindings = [{
     type = "d1"
