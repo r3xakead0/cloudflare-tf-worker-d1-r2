@@ -21,7 +21,9 @@ async function handleRequest(request) {
     return Response.json(results);
   }
 
-  app.get('/favicon.ico', (req, res) => res.status(204));
+  if (url.pathname === "/favicon.ico") {
+    return new Response(null, { status: 204 });
+  }
 
   return new Response("Not found", { status: 404 });
 }
