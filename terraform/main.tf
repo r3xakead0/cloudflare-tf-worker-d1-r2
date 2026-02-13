@@ -24,9 +24,9 @@ resource "cloudflare_workers_script" "node_app" {
       id   = cloudflare_d1_database.app_db.id
     },
     {
-      type = "kv_namespace"
-      name = "KV"
-      id   = cloudflare_workers_kv_namespace.app_kv.id
+      type          = "kv_namespace"
+      name          = "KV"
+      namespace_id  = cloudflare_workers_kv_namespace.app_kv.id
     }]
 }
 
