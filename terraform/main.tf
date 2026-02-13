@@ -12,9 +12,7 @@ resource "cloudflare_workers_script" "node_app" {
   account_id  = var.account_id
   content_file   = "../app/worker.js"
   content_sha256 = filesha256("../app/worker.js")
-
-  main_module = "../app/worker.js"
-
+  main_module = "worker.js"
   bindings = [{
     type = "d1"
     name = "DB"
