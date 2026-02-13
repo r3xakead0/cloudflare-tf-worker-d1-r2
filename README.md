@@ -43,6 +43,12 @@ wrangler --version
 wrangler d1 list
 ```
 
+2. Get kv_namespace_id:
+
+```bash
+wrangler kv namespace list
+```
+
 3. Start the worker:
 
 ```bash

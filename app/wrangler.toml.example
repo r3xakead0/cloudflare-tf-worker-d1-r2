@@ -2,7 +2,13 @@ name = "node-demo-worker"
 main = "worker.js"
 compatibility_date = "2024-01-01"
 
+logpush = true
+
 [[d1_databases]]
 binding = "DB"
 database_name = "node-demo-db"
 database_id = "YOUR_DATABASE_ID_REAL"
+
+[[kv_namespaces]]
+binding = "KV"
+id = "YOUR_KV_NAMESPACE_ID"
