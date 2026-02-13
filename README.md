@@ -32,18 +32,24 @@ terraform-cloudflare-worker-d1-r2/
 1. Install Wrangler:
 
 ```bash
+cd app
 npm install -g wrangler
 wrangler --version
 ```
 
-2. Start the worker:
+2. Get database_id:
 
 ```bash
-cd app
-wrangler dev worker.js
+wrangler d1 list
 ```
 
-3. Open in browser:
+3. Start the worker:
+
+```bash
+wrangler dev
+```
+
+4. Open in browser:
 
 [http://localhost:8787](http://localhost:8787)
 

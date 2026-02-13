@@ -178,3 +178,6 @@ override.tf.json
 terraform.rc
 
 # End of https://www.toptal.com/developers/gitignore/api/node,terraform
+
+.wrangler/
+wrangler.toml
