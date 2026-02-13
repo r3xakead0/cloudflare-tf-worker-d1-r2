@@ -1,19 +1,19 @@
 # Terraform Cloudflare Worker Demo
 
-This project deploys a NodeJS application on Cloudflare Workers, and D1 using Terraform Cloud and GitHub Actions.
+This project deploys a NodeJS application on Cloudflare Workers, D1, and KV using Terraform Cloud and GitHub Actions.
 
 ## 🛠️ Installation
 
 Clone the repository:
 ```bash
-git clone https://github.com/r3xakead0/terraform-cloudflare-worker-d1-r2.git
-cd terraform-cloudflare-worker-d1-r2
+git clone https://github.com/r3xakead0/terraform-cloudflare-worker-d1-kv.git
+cd terraform-cloudflare-worker-d1-kv
 ```
 
 ## 📁 Structure
 
 ```
-terraform-cloudflare-worker-d1-r2/
+terraform-cloudflare-worker-d1-kv/
 ├── terraform/
     ├── main.tf
     ├── provider.tf
@@ -74,11 +74,12 @@ wrangler dev
 1. Login to [Cloudflare](https://dash.cloudflare.com/)
 2. Go to **Manage account -> Account API tokens**
 3. Click **Create Token** and select **Custom Token**
-4. Token name: `cloudflare_worker_d1_r2_api_token` (or your preferred name)
+4. Token name: `cloudflare_worker_d1_kv_api_token` (or your preferred name)
 5. Configure the following permissions:
    - Permissions:
         - Account > Workers Scripts: `Edit`
         - Account > D1: `Edit`
+        - Account > Workers KV Storage: `Edit`
         - Zone > Workers Routes: `Edit`
    - Zone Resources:
         - Include > All zones from an account: `chainiz`
@@ -116,6 +117,8 @@ Actions → Destroy Worker → Run workflow
 - `/`       → Hello Worker
 - `/time`   → Server time
 - `/db`     → Query D1 database
+- `/kv/set` → Save in KV
+- `/kv/get` → Read from KV
 
 ## 🧠 Workflow
 
@@ -135,4 +138,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-For issues, questions, or contributions, please visit the [GitHub repository](https://github.com/r3xakead0/terraform-cloudflare-worker-d1-r2).
+For issues, questions, or contributions, please visit the [GitHub repository](https://github.com/r3xakead0/terraform-cloudflare-worker-d1-kv).

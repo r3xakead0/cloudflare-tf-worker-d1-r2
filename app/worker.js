@@ -10,6 +10,7 @@ export default {
       return new Response(new Date().toISOString());
     }
 
+    // Read from D1
     if (url.pathname === "/db") {
       const { results } = await env.DB
         .prepare("SELECT datetime('now') as time")
@@ -18,8 +19,16 @@ export default {
       return Response.json(results);
     }
 
-    if (url.pathname === "/favicon.ico") {
-      return new Response(null, { status: 204 });
+    // Save in KV
+    if (url.pathname === "/kv/set") {
+      await env.KV.put("hello", "world");
+      return new Response("Saved in KV");
+    }
+
+    // Read from KV
+    if (url.pathname === "/kv/get") {
+      const value = await env.KV.get("hello");
+      return new Response(`KV value: ${value}`);
     }
 
     return new Response("Not found", { status: 404 });

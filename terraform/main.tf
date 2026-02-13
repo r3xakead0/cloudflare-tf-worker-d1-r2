@@ -7,6 +7,11 @@ resource "cloudflare_d1_database" "app_db" {
   }
 }
 
+resource "cloudflare_workers_kv_namespace" "app_kv" {
+  account_id = var.account_id
+  title      = "${var.app_name}-kv"
+}
+
 resource "cloudflare_workers_script" "node_app" {
   script_name = "${var.app_name}-worker"
   account_id  = var.account_id
@@ -14,10 +19,15 @@ resource "cloudflare_workers_script" "node_app" {
   content_sha256 = filesha256("../app/worker.js")
   main_module = "worker.js"
   bindings = [{
-    type = "d1"
-    name = "DB"
-    id   = cloudflare_d1_database.app_db.id
-  }]
+      type = "d1"
+      name = "DB"
+      id   = cloudflare_d1_database.app_db.id
+    },
+    {
+      type = "kv_namespace"
+      name = "KV"
+      id   = cloudflare_workers_kv_namespace.app_kv.id
+    }]
 }
 
 resource "cloudflare_workers_script_subdomain" "workers_dev" {
