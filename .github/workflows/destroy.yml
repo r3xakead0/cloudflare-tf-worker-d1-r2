@@ -1,4 +1,4 @@
-name: Destroy Worker+D1+R2
+name: Destroy Worker+D1
 
 on:
   workflow_dispatch:
